@@ -23,6 +23,11 @@ namespace NBench
     [AttributeUsage(AttributeTargets.Method, AllowMultiple = true)]
     public class MemoryMeasurementAttribute : MeasurementAttribute
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MemoryMeasurementAttribute"/> class using the specified 
+        /// <paramref name="metric"/> value
+        /// </summary>
+        /// <param name="metric">The memory-specific metric to track</param>
         public MemoryMeasurementAttribute(MemoryMetric metric)
         {
             Metric = metric;
@@ -40,6 +45,13 @@ namespace NBench
     [AttributeUsage(AttributeTargets.Method)]
     public class MemoryAssertionAttribute : MemoryMeasurementAttribute
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MemoryAssertionAttribute"/> class using the specified 
+        /// <paramref name="metric"/> value
+        /// </summary>
+        /// <param name="metric">The memory-specific metric to track</param>
+        /// <param name="condition">The test we're going to perform against the collected value</param>
+        /// <param name="averageBytes">The value that will be compared against the collected value</param>
         public MemoryAssertionAttribute(MemoryMetric metric, MustBe condition, double averageBytes) : base(metric)
         {
             Condition = condition;

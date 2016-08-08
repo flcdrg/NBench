@@ -33,6 +33,12 @@ namespace NBench
     [AttributeUsage(AttributeTargets.Method, AllowMultiple = true)]
     public class GcMeasurementAttribute : MeasurementAttribute
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="GcMeasurementAttribute"/> class using the specified 
+        /// <paramref name="metric"/> and <paramref name="generation"/> values.
+        /// </summary>
+        /// <param name="metric">The GC metric we're going to collect during the benchmark</param>
+        /// <param name="generation">The GC generation for which we'll observe</param>
         public GcMeasurementAttribute(GcMetric metric, GcGeneration generation)
         {
             Metric = metric;
@@ -58,6 +64,15 @@ namespace NBench
     [AttributeUsage(AttributeTargets.Method, AllowMultiple = true)]
     public class GcThroughputAssertionAttribute : GcMeasurementAttribute
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="GcThroughputAssertionAttribute"/> class using the specified 
+        /// <paramref name="metric"/>, <paramref name="generations"/>, <paramref name="condition"/>
+        /// and <paramref name="averageOperationsPerSecond"/> values.
+        /// </summary>
+        /// <param name="metric">The GC metric we're going to collect during the benchmark</param>
+        /// <param name="generations">The GC generation for which we'll observe</param>
+        /// <param name="condition">The test we're going to perform against the collected value</param>
+        /// <param name="averageOperationsPerSecond">The value that will be compared against the collected value</param>
         public GcThroughputAssertionAttribute(GcMetric metric, GcGeneration generations,
             MustBe condition, double averageOperationsPerSecond) : base(metric, generations)
         {
@@ -91,6 +106,15 @@ namespace NBench
     [AttributeUsage(AttributeTargets.Method, AllowMultiple = true)]
     public class GcTotalAssertionAttribute : GcMeasurementAttribute
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="GcTotalAssertionAttribute"/> class using the specified 
+        /// <paramref name="metric"/>, <paramref name="generations"/>, <paramref name="condition"/>
+        /// and <paramref name="averageOperationsTotal"/> values.
+        /// </summary>
+        /// <param name="metric">The GC metric we're going to collect during the benchmark</param>
+        /// <param name="generations">The GC generation for which we'll observe</param>
+        /// <param name="condition">The test we're going to perform against the collected value</param>
+        /// <param name="averageOperationsTotal">The value that will be compared against the collected value</param>
         public GcTotalAssertionAttribute(GcMetric metric, GcGeneration generations, 
             MustBe condition, double averageOperationsTotal) : base(metric, generations)
         {

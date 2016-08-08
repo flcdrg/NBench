@@ -50,6 +50,9 @@ namespace NBench
         public const RunMode DefaultRunType = NBench.RunMode.Iterations;
         public const int DefaultRuntimeMilliseconds = 0; //disabled
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PerfBenchmarkAttribute"/> class
+        /// </summary>
         public PerfBenchmarkAttribute()
         {
             TestMode = DefaultTestType;
@@ -112,6 +115,12 @@ namespace NBench
     [AttributeUsage(AttributeTargets.Method)]
     public class PerfSetupAttribute : Attribute
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PerfSetupAttribute"/> class
+        /// </summary>
+        public PerfSetupAttribute()
+        {
+        }
     }
 
     /// <summary>
@@ -120,6 +129,12 @@ namespace NBench
     [AttributeUsage(AttributeTargets.Method)]
     public class PerfCleanupAttribute : Attribute
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PerfCleanupAttribute"/> class
+        /// </summary>
+        public PerfCleanupAttribute()
+        {
+        }
     }
 }
 

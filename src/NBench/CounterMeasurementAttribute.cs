@@ -12,6 +12,10 @@ namespace NBench
     [AttributeUsage(AttributeTargets.Method, AllowMultiple = true)]
     public class CounterMeasurementAttribute : MeasurementAttribute
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CounterMeasurementAttribute"/> class using the specified <paramref name="counterName"/> value
+        /// </summary>
+        /// <param name="counterName">The name of the counter being measured</param>
         public CounterMeasurementAttribute(string counterName)
         {
             CounterName = counterName;
@@ -31,6 +35,13 @@ namespace NBench
     [AttributeUsage(AttributeTargets.Method, AllowMultiple = true)]
     public class CounterThroughputAssertionAttribute : CounterMeasurementAttribute
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CounterThroughputAssertionAttribute"/> class using the specified <paramref name="counterName"/>,
+        /// <paramref name="condition"/> and <paramref name="averageOperationsPerSecond"/> values
+        /// </summary>
+        /// <param name="counterName">The name of the counter being measured</param>
+        /// <param name="condition">The test to perform against the collected value</param>
+        /// <param name="averageOperationsPerSecond">The value that will be compared against the collected value</param>
         public CounterThroughputAssertionAttribute(string counterName, MustBe condition, double averageOperationsPerSecond) : base(counterName)
         {
             Condition = condition;
@@ -63,6 +74,13 @@ namespace NBench
     [AttributeUsage(AttributeTargets.Method, AllowMultiple = true)]
     public class CounterTotalAssertionAttribute : CounterMeasurementAttribute
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CounterTotalAssertionAttribute"/> class using the specified <paramref name="counterName"/>,
+        /// <paramref name="condition"/> and <paramref name="averageOperationsTotal"/> values
+        /// </summary>
+        /// <param name="counterName">The name of the counter being measured</param>
+        /// <param name="condition">The test to perform against the collected value</param>
+        /// <param name="averageOperationsTotal">The value that will be compared against the collected value</param>
         public CounterTotalAssertionAttribute(string counterName, MustBe condition, double averageOperationsTotal) : base(counterName)
         {
             Condition = condition;

@@ -14,7 +14,12 @@ namespace NBench
     [AttributeUsage(AttributeTargets.Method, AllowMultiple = true)]
     public class TimingMeasurementAttribute : MeasurementAttribute
     {
-
+        /// <summary>
+        /// Initializes a new instance of the <see cref="TimingMeasurementAttribute"/> class
+        /// </summary>
+        public TimingMeasurementAttribute()
+        {
+        }
     }
 
     /// <summary>
@@ -33,6 +38,13 @@ namespace NBench
         /// OPTIONAL. The minimum amount of time that must elapsed for this <see cref="PerfBenchmarkAttribute"/> in MILLISECONDs
         /// </summary>
         public long MinTimeMilliseconds { get; set; }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ElapsedTimeAssertionAttribute"/> class
+        /// </summary>
+        public ElapsedTimeAssertionAttribute()
+        {
+        }
     }
 }
 
